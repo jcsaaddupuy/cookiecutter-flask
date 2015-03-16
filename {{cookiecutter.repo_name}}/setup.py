@@ -12,10 +12,7 @@ with open('README.rst') as readme_file:
     readme = readme_file.read()
 
 requirements = open("requirements.txt").read()
-
-test_requirements = [
-    # TODO: put package test requirements here
-]
+test_requirements = open("requirements-tests.txt").read()
 
 import version
 
