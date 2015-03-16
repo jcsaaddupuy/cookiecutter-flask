@@ -27,10 +27,10 @@ def configure_loggers(app):
 
 
 def register_all(app):
-{%- if cookiecutter.use_sql_alchemy %}
+{%- if cookiecutter.use_sql_alchemy == 'yes' %}
     register_db(app)
 {%- endif %}
-{%- if cookiecutter.use_celery %}
+{%- if cookiecutter.use_celery == 'yes' %}
     register_celery(app)
 {%- endif%}
     register_blueprints(app)
@@ -40,14 +40,14 @@ def register_blueprints(app):
     from {{cookiecutter.repo_name}}.apps.default import views as default_views
     app.register_blueprint(default_views.blueprint, url_prefix='/')
 
-{%- if cookiecutter.use_sql_alchemy %}
+{%- if cookiecutter.use_sql_alchemy == 'yes' %}
 def register_db(app):
     from flask.ext.sqlalchemy import SQLAlchemy
     db = SQLAlchemy(app)
     app.db = db
 {%- endif%}
 
-{%- if cookiecutter.use_celery %}
+{%- if cookiecutter.use_celery == 'yes' %}
 def register_celery(app):
     app.celery = None
 {%- endif %}

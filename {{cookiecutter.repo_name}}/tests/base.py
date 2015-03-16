@@ -36,20 +36,26 @@ class BaseTestCase(unittest.TestCase):
 
         app = appfactory.create_app(__name__)
         appfactory.configure_app(app, from_default_obj=config_obj, from_envvar=ENV_VAR_NAME)
+{%- if cookiecutter.use_sql_alchemy == 'yes' %}
         # use a persistent file temporary database
         app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///%s" %self. TMP_DB
+{%- endif %}
         appfactory.register_all(app)
+{%- if cookiecutter.use_sql_alchemy == 'yes' %}
         # Create models
         Base.metadata.create_all(app.db.engine)
-
+{%- endif %}
 
         self.app = app
         self.client = app.test_client()
 
+
+{%- if cookiecutter.use_sql_alchemy == 'yes' %}
     def tearDown(self):
         # cleanup temp db
         if os.path.exists(self.TMP_DB):
             os.unlink(self.TMP_DB)
+{%- endif %}
 
 
 if __name__ == '__main__':
