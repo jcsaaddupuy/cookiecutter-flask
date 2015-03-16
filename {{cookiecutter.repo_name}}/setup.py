@@ -37,7 +37,7 @@ setup(
     # configure the default command line entry point.
     entry_points={
         'console_scripts': [
-            '{{cookiecutter.repo_name}}-cli = {{cookiecutter.repo_name}}.bin.cli:main',
+            '{{cookiecutter.repo_name}}-manage = {{cookiecutter.repo_name}}.manage:main',
         ]
     },
 

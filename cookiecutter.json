@@ -9,7 +9,6 @@
 	"year": "2015",
 	"version": "0.1.0",
         "use_celery" : "yes",
-        "use_sql_alchemy" : "yes",
-        "use_alembic" : "yes"
+        "use_sql_alchemy" : "yes"
 }
 
