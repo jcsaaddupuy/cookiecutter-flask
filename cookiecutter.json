@@ -7,5 +7,9 @@
 	"project_short_description": "",
 	"release_date": "2015-03-13",
 	"year": "2015",
-	"version": "0.1.0"
+	"version": "0.1.0",
+        "use_celery" : true,
+        "use_sql_alchemy" : true,
+        "use_alembic" : true
 }
+
