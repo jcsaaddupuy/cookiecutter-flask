@@ -9,6 +9,6 @@ def make_app():
     appfactory.register_all(app)
 
 app = make_app()
-{% if cookiecutter.use_celery %}
+{%- if cookiecutter.use_celery %}
 celery = app.celery
-{%endif%}
+{%- endif %}

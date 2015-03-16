@@ -8,8 +8,8 @@
 	"release_date": "2015-03-13",
 	"year": "2015",
 	"version": "0.1.0",
-        "use_celery" : true,
-        "use_sql_alchemy" : true,
-        "use_alembic" : true
+        "use_celery" : "yes",
+        "use_sql_alchemy" : "yes",
+        "use_alembic" : "yes"
 }
 
