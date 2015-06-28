@@ -1,6 +1,6 @@
 # coding: utf-8
 from __future__ import unicode_literals
-import appfactory
+from {{cookiecutter.repo_name}} import appfactory
 
 
 DEFAULT_CONFIG_OBJ='{{cookiecutter.repo_name}}.settings.defaults'
