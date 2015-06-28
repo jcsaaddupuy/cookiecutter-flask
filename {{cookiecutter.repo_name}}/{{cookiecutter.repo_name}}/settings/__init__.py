@@ -1,4 +1,4 @@
 # coding: utf-8
-from default import Config
+from .default import Config
 
 defaults = Config()
