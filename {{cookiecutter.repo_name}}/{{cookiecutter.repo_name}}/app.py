@@ -5,7 +5,7 @@ from {{cookiecutter.repo_name}} import appfactory
 
 DEFAULT_CONFIG_OBJ='{{cookiecutter.repo_name}}.settings.defaults'
 # uncomment this to for using an envvar
-# DEFAULT_CONFIG_ENVVAR="{{cookiecutter.repo_name | upper}}"
+# DEFAULT_CONFIG_ENVVAR="{{cookiecutter.repo_name | upper}}_SETTINGS"
 
 def make_app():
     app = appfactory.create_app(__name__)
