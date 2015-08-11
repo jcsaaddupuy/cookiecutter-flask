@@ -16,6 +16,6 @@ def make_app():
     return app
 
 app = make_app()
-{%- if cookiecutter.use_celery %}
+{%- if cookiecutter.use_celery  == 'yes' %}
 celery = app.celery
 {%- endif %}
