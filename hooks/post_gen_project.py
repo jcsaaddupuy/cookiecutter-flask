@@ -11,6 +11,9 @@ TO_REMOVE={
 ,'git': [
         os.path.join(project_directory, 'gitignore'),
     ]
+,'sqlalchemy': [
+        os.path.join(project_directory, project_name, 'models.py'),
+    ]
 }
 
 TO_MOVE={
@@ -30,6 +33,10 @@ def move_files(files):
 if "{{ cookiecutter.use_celery}}" != 'yes':
     # remove celery files
     remove_files(TO_REMOVE['celery'])
+
+if "{{ cookiecutter.use_sql_alchemy}}" != 'yes':
+    # remove celery files
+    remove_files(TO_REMOVE['sqlalchemy'])
 
 
 if "{{ cookiecutter.use_git}}" != 'yes':
