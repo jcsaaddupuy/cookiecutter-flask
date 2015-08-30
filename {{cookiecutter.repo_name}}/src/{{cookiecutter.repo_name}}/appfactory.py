@@ -2,7 +2,10 @@
 from __future__ import unicode_literals
 
 from flask import Flask
+
+import os
 import logging
+import logging.config
 
 
 def create_app(name):
@@ -20,10 +23,10 @@ def configure_app(app, from_default_obj, from_envvar=None):
         app.config.from_envvar(from_envvar)
 
 def configure_loggers(app):
-    if not app.debug:
-        # In production mode, add log handler to sys.stderr.
-        app.logger.addHandler(logging.StreamHandler())
-        app.logger.setLevel(logging.INFO)
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    logging.config.fileConfig(os.path.join(current_dir, 'logging.conf'))
+    if app.debug:
+        map(lambda handler: handler.setLevel(logging.DEBUG), app.logger.handlers)
 
 
 def register_all(app):
