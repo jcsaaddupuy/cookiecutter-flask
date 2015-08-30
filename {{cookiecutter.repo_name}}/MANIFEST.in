@@ -1,12 +1,19 @@
+include requirements.txt
+include requirements-tests.txt
+include version.py
+include {{cookiecutter.repo_name}}/logging.conf
+
+{% if cookiecutter.use_sql_alchemy == 'yes' -%}
+if cookiecutter.use_sql_alchemy == 'yes' -%}
+recursive-include src/{{cookiecutter.repo_name}}/migrations *
+{% endif -%}
+
+
 include AUTHORS.rst
 include CONTRIBUTING.rst
 include HISTORY.rst
 include LICENSE
 include README.rst
-include requirements.txt
-include requirements-tests.txt
-include version.py
-include {{cookiecutter.repo_name}}/logging.conf
 
 recursive-include tests *
 recursive-exclude * __pycache__

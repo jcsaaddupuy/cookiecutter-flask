@@ -21,7 +21,9 @@ setup(
     author="{{ cookiecutter.full_name }}",
     author_email='{{ cookiecutter.email }}',
     url='https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.repo_name }}',
-    packages= find_packages('.', exclude=['tests*',]),
+
+    packages=find_packages('src'),
+    package_dir={'': 'src'},
 
     # configure the default command line entry point.
     entry_points={
