@@ -4,15 +4,16 @@ import os
 project_directory=os.path.realpath(os.path.curdir)
 project_name="{{cookiecutter.repo_name}}"
 
+
 TO_REMOVE={
 'celery': [
-        os.path.join(project_directory, project_name, 'tasks.py'),
+        os.path.join(project_directory, 'src', project_name, 'tasks.py'),
     ]
 ,'git': [
         os.path.join(project_directory, 'gitignore'),
     ]
 ,'sqlalchemy': [
-        os.path.join(project_directory, project_name, 'models.py'),
+        os.path.join(project_directory, 'src', project_name, 'models.py'),
     ]
 }
 
