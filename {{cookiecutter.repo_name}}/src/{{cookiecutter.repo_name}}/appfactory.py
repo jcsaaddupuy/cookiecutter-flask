@@ -3,6 +3,8 @@ from __future__ import unicode_literals
 
 from flask import Flask
 
+import flask_appconfig
+
 import os
 import logging
 import logging.config
@@ -21,6 +23,9 @@ def configure_app(app, from_default_obj, from_envvar=None):
     app.config.from_object(from_default_obj)
     if from_envvar:
         app.config.from_envvar(from_envvar)
+    # Override config from environment
+    prefix = "{app_name}_SETTINGS_".format(app_name = app.name.upper())
+    flask_appconfig.env.from_envvars( app.config, prefix=prefix )
 
 def configure_loggers(app):
     current_dir = os.path.dirname(os.path.abspath(__file__))
